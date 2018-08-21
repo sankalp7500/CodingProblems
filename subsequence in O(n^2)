@@ -1,0 +1,36 @@
+#include <iostream>
+#include<vector>
+using namespace std;
+
+int main()
+{
+    int n=0,i=0,j=0,n1=0;
+    cin>>n;
+    vector<int> a(n);
+    vector<int> temp;
+    vector<vector<int> > sub;
+    sub.push_back(temp);
+    for(i=0;i<n;++i)
+        cin>>a[i];
+    
+    for(i=0;i<n;++i)
+    {
+        n1 = sub.size();
+
+        for(j=0;j<n1;++j)
+        {
+            temp = sub[j];
+            temp.push_back(a[i]);
+            sub.push_back(temp);
+        }
+    }
+    
+    for(i=0;i<sub.size();++i)
+    {
+        temp = sub[i];
+        for(j=0;j<temp.size();++j)
+            cout<<temp[j]<<",";
+        cout<<endl;
+    }
+    return 0;
+}
