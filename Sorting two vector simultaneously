@@ -1,0 +1,22 @@
+#include <iostream>
+#include<map>
+#include<vector>
+#include<algorithm>
+using namespace std;
+
+int main()
+{
+    vector<pair<int,int>> arr;
+    arr.push_back(make_pair(2,7));
+    arr.push_back(make_pair(1,9));
+    arr.push_back(make_pair(5,8));
+
+    sort(arr.begin(),arr.end());
+    for(int i=0;i<3;++i)
+    {
+        pair<int,int> p;
+        p=arr[i];
+        cout<<p.first<<","<<p.second<<endl;
+    }
+    return 0;
+}
