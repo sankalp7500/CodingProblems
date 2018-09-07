@@ -1,0 +1,27 @@
+void Solution::rotate(vector<vector<int> > &A)
+{
+    int i=0,j=0,temp=0,k=0;
+    int n = A.size();
+    for(i=0;i<n;++i)
+    {
+        for(j=i;j<n;++j)
+        {
+        temp = A[i][j];
+        A[i][j] = A[j][i];
+        A[j][i] = temp;
+        }
+    }
+    
+    i=0;j=n-1;
+    while(i<j)
+    {
+        for(k=0;k<n;++k)
+        {
+            temp = A[k][i];
+            A[k][i] = A[k][j];
+            A[k][j] = temp;
+        }
+        i++;
+        j--;
+    }
+}
