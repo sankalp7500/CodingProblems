@@ -1,0 +1,30 @@
+#include <iostream>
+#include<vector>
+using namespace std;
+
+int bs(vector<int> a,int beg,int end,int value)
+{
+    int mid=(beg+end)/2;
+    if(beg>end)
+    return 0;
+    
+    if(a[mid]==value)
+    {
+        int a1 = bs(a,beg,mid-1,value);
+        int b = bs(a,mid+1,end,value);
+        return 1 + a1 +b;
+    }
+    
+    if(a[mid]>value)
+    return bs(a,beg,mid-1,value);
+    
+    if(a[mid]<value)
+    return bs(a,mid+1,end,value);
+    
+}
+int main()
+{
+    vector<int> a{5,7,7,8,8,8,10};
+    cout<<bs(a,0,6,10);
+    return 0;
+}
