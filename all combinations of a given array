@@ -1,0 +1,42 @@
+#include <iostream>
+#include<vector>
+using namespace std;
+
+void combinations(vector<int> &a,vector<int> &data,int start,int end,int index,int r)
+{
+    if(index == r)
+    {
+        int i=0;
+        for(i=0;i<r;++i)
+        cout<<data[i]<<",";
+        cout<<endl;
+        return;
+    }
+    
+    for(int i=start;i<=end && end-i+1>=r-index;++i)
+    {
+        data[index]=a[i];
+        combinations(a,data,i+1,end,index+1,r);
+    }
+}
+void generate(vector<int> &a)
+{
+    int n=a.size();
+    int i=n-1;
+    while(i>=0)
+    {
+        cout<<"Combination of size "<<i+1<<" is::"<<endl;
+        vector<int> data(i+1);
+        combinations(a,data,0,n-1,0,i+1);
+        cout<<endl;
+        i--;
+    }
+}
+
+
+int main()
+{
+    vector<int> a{1,2,3,4,5};
+    generate(a);
+    return 0;
+}
